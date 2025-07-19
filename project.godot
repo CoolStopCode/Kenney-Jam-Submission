@@ -35,7 +35,7 @@ folder_colors={
 
 [global_group]
 
-Player="The gyatt damn player"
+player="The gyatt damn player"
 
 [input]
 

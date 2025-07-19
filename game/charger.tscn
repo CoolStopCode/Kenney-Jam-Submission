@@ -1,12 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://cxepljrkm5ivf"]
+[gd_scene load_steps=7 format=3 uid="uid://cxepljrkm5ivf"]
 
 [ext_resource type="Script" uid="uid://b3qofthncdxfo" path="res://game/Charger.gd" id="1_584kd"]
 [ext_resource type="Texture2D" uid="uid://dsueuxarasupf" path="res://Resources (delete this later)/Sprites/scifiStructure_10.png" id="2_c2leh"]
+[ext_resource type="Texture2D" uid="uid://dui87fng22jgd" path="res://assets/crystal/scifiEnvironment_10.png" id="3_btxam"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sa7kb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s0vrt"]
 size = Vector2(8, 12)
+
+[sub_resource type="LabelSettings" id="LabelSettings_iblg0"]
+font_size = 32
 
 [node name="Charger" type="Area2D"]
 script = ExtResource("1_584kd")
@@ -23,6 +27,20 @@ texture = ExtResource("2_c2leh")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(8, 11)
 shape = SubResource("RectangleShape2D_s0vrt")
+
+[node name="display" type="Sprite2D" parent="."]
+position = Vector2(-9, -33)
+scale = Vector2(0.53125, 0.53125)
+texture = ExtResource("3_btxam")
+
+[node name="Label" type="Label" parent="display"]
+offset_left = 24.4706
+offset_top = -20.7059
+offset_right = 64.4706
+offset_bottom = 24.2941
+text = "5"
+label_settings = SubResource("LabelSettings_iblg0")
+vertical_alignment = 1
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

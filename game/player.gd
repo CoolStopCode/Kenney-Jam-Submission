@@ -3,14 +3,19 @@ extends CharacterBody2D
 const MOVE_SPEED = 30000
 const BODY_ROTATE_SPEED = 20
 const TRACKS_ROTATE_SPEED = 7
-const POWER_USAGE = 2.0 # how much power is used per second
+const POWER_USAGE = 0.8 # how much power is used per second
 
+var dead := false
 func direction_to_vector(theta):
 	return Vector2(cos(theta), sin(theta))
 
 func _process(delta: float) -> void:
 	velocity = Vector2.ZERO
 	if Global.power <= 0:
+		dead = true
+		$trail.emitting = false
+		$dust.emitting = false
+		modulate = Color(0.3, 0.3, 0.3)
 		return
 
 	if Input.is_action_pressed("Forward"):
@@ -45,3 +50,12 @@ func _process(delta: float) -> void:
 	
 	velocity = velocity.normalized() * MOVE_SPEED  * delta
 	move_and_slide()
+
+func hit():
+	if not dead:
+		modulate = Color(1.0, 0.6, 0.6)
+		await get_tree().create_timer(0.2).timeout
+		modulate = Color(0.8, 0.8, 0.8)
+	
+	
+	

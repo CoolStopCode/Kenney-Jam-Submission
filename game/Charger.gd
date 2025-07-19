@@ -7,9 +7,9 @@ func _physics_process(delta: float) -> void:
 		Global.power += 4 * delta
 
 func _on_body_entered(body: Node2D) -> void:
-	if body.is_in_group("Player"):
+	if body.is_in_group("player"):
 		Player = true
 
 func _on_body_exited(body: Node2D) -> void:
-	if body.is_in_group("Player"):
+	if body.is_in_group("player"):
 		Player = false

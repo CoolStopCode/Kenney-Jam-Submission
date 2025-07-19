@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=3 uid="uid://ccaxipabgd2xp"]
+
+[ext_resource type="Texture2D" uid="uid://dxvbkb213rsq2" path="res://assets/enemy/tankBlack_outline.png" id="1_44xr4"]
+[ext_resource type="Script" uid="uid://1absndt3qlx0" path="res://game/spin_turret.gd" id="1_uv6vv"]
+[ext_resource type="Texture2D" uid="uid://s8gxbcsxnnid" path="res://assets/enemy/barrelBlack_outline.png" id="2_uv6vv"]
+[ext_resource type="Texture2D" uid="uid://255hnovj487q" path="res://assets/particle/muzzle_04.png" id="4_77x35"]
+[ext_resource type="Texture2D" uid="uid://bahx8gfavtalb" path="res://Resources (delete this later)/kenney_particle-pack/PNG (Transparent)/circle_05.png" id="5_wvyqd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4yq1q"]
+size = Vector2(100, 100)
+
+[node name="spin_turret" type="StaticBody2D"]
+script = ExtResource("1_uv6vv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_4yq1q")
+
+[node name="base" type="Sprite2D" parent="."]
+position = Vector2(1.43051e-06, 1.43051e-06)
+scale = Vector2(1.4375, 1.4375)
+texture = ExtResource("1_44xr4")
+
+[node name="top" type="Sprite2D" parent="."]
+position = Vector2(0, 1.90735e-06)
+scale = Vector2(1.51042, 1.51042)
+texture = ExtResource("2_uv6vv")
+
+[node name="muzzle" type="Node2D" parent="top"]
+modulate = Color(1, 0.925, 0.75, 0.592157)
+position = Vector2(0, -1.26279e-06)
+scale = Vector2(0.662068, 0.662068)
+
+[node name="Sprite2D" type="Sprite2D" parent="top/muzzle"]
+position = Vector2(-3, -131)
+scale = Vector2(0.0478515, 0.389648)
+texture = ExtResource("4_77x35")
+
+[node name="Sprite2D2" type="Sprite2D" parent="top/muzzle"]
+position = Vector2(-2, 138)
+rotation = 3.14159
+scale = Vector2(0.0564835, 0.474645)
+texture = ExtResource("4_77x35")
+
+[node name="Sprite2D3" type="Sprite2D" parent="top/muzzle"]
+position = Vector2(-3, 51)
+scale = Vector2(0.269531, 0.539063)
+texture = ExtResource("5_wvyqd")
+
+[node name="Sprite2D4" type="Sprite2D" parent="top/muzzle"]
+position = Vector2(-3, -45)
+scale = Vector2(0.269531, 0.539063)
+texture = ExtResource("5_wvyqd")
