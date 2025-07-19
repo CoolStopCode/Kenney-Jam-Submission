@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=4 uid="uid://dwbfpl17n4ahj"]
+[gd_scene load_steps=6 format=4 uid="uid://dwbfpl17n4ahj"]
 
 [ext_resource type="Texture2D" uid="uid://bmleu0fe1ex4c" path="res://Resources/Sprites/TileMap1.png" id="1_vasa2"]
 [ext_resource type="PackedScene" uid="uid://5yuaqv0jstiy" path="res://game/player.tscn" id="2_h7iqs"]
+[ext_resource type="PackedScene" uid="uid://cxepljrkm5ivf" path="res://game/charger.tscn" id="3_h7iqs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cm0pq"]
 texture = ExtResource("1_vasa2")
@@ -58,3 +59,6 @@ tile_set = SubResource("TileSet_fos0i")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position_smoothing_enabled = true
+
+[node name="Charger" parent="." instance=ExtResource("3_h7iqs")]
+position = Vector2(430, 104)
