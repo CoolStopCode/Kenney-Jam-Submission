@@ -1,7 +1,8 @@
 extends CharacterBody2D
 
 const MOVE_SPEED = 30000
-const ROTATE_SPEED = 20
+const BODY_ROTATE_SPEED = 20
+const TRACKS_ROTATE_SPEED = 7
 const POWER_USAGE = 2.0 # how much power is used per second
 
 func direction_to_vector(theta):
@@ -13,16 +14,16 @@ func _process(delta: float) -> void:
 		return
 
 	if Input.is_action_pressed("Forward"):
-		velocity = direction_to_vector($sprite.rotation)
+		velocity = direction_to_vector($body.rotation)
 		Global.power -= POWER_USAGE * delta
 	if Input.is_action_pressed("Reverse"):
-		velocity = -direction_to_vector($sprite.rotation)
+		velocity = -direction_to_vector($tracks.rotation)
 		Global.power -= POWER_USAGE * delta
 	
 	if Input.is_action_pressed("Forward") or Input.is_action_pressed("Reverse"):
 		$trail.emitting = true
 		$dust.emitting = true
-		$dust.rotation = $sprite.rotation
+		$dust.rotation = $body.rotation
 	else:
 		$trail.emitting = false
 		$dust.emitting = false
@@ -38,7 +39,8 @@ func _process(delta: float) -> void:
 	
 	var global_mouse = get_global_mouse_position()
 	var target_angle = (global_mouse - global_position).angle()
-	$sprite.rotation = lerp_angle($sprite.rotation, target_angle, ROTATE_SPEED * delta)
+	$body.rotation = lerp_angle($body.rotation, target_angle, BODY_ROTATE_SPEED * delta)
+	$tracks.rotation = lerp_angle($tracks.rotation, target_angle, TRACKS_ROTATE_SPEED * delta)
 
 	
 	velocity = velocity.normalized() * MOVE_SPEED  * delta

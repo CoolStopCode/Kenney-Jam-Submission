@@ -1,9 +1,10 @@
 [gd_scene load_steps=11 format=3 uid="uid://5yuaqv0jstiy"]
 
 [ext_resource type="Script" uid="uid://c2uqd5xmbn542" path="res://game/player.gd" id="1_onrkg"]
-[ext_resource type="Texture2D" uid="uid://c6hq5dnw46nr2" path="res://Resources/kenney_particle-pack/PNG (Transparent)/smoke_08.png" id="2_du4nq"]
-[ext_resource type="Texture2D" uid="uid://du7vjpfc4gl0k" path="res://Resources/Sprites/Player/robot_3Dblue.png" id="2_i3pqv"]
-[ext_resource type="Texture2D" uid="uid://bobuwe4j85ldf" path="res://Resources/kenney_particle-pack/PNG (Transparent)/dirt_01.png" id="3_p0vpi"]
+[ext_resource type="Texture2D" uid="uid://c6hq5dnw46nr2" path="res://Resources (delete this later)/kenney_particle-pack/PNG (Transparent)/smoke_08.png" id="2_du4nq"]
+[ext_resource type="Texture2D" uid="uid://bobuwe4j85ldf" path="res://Resources (delete this later)/kenney_particle-pack/PNG (Transparent)/dirt_01.png" id="3_p0vpi"]
+[ext_resource type="Texture2D" uid="uid://cvuxfw6gssc46" path="res://assets/player/body_3Dblue.png" id="4_d631c"]
+[ext_resource type="Texture2D" uid="uid://cec5viwd3d74d" path="res://assets/player/track_long.png" id="5_4fto2"]
 
 [sub_resource type="Gradient" id="Gradient_du4nq"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
@@ -31,17 +32,6 @@ turbulence_noise_strength = 0.01
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hqtel"]
 size = Vector2(40, 40)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_sweqy"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_i3pqv")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_onrkg")
 
@@ -66,6 +56,18 @@ process_material = SubResource("ParticleProcessMaterial_p0vpi")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_hqtel")
 
-[node name="sprite" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.283784, 0.283784)
-sprite_frames = SubResource("SpriteFrames_sweqy")
+[node name="tracks" type="Node2D" parent="."]
+scale = Vector2(0.3, 0.3)
+
+[node name="Sprite2D2" type="Sprite2D" parent="tracks"]
+position = Vector2(0, -40)
+texture = ExtResource("5_4fto2")
+
+[node name="Sprite2D3" type="Sprite2D" parent="tracks"]
+position = Vector2(0, 40)
+texture = ExtResource("5_4fto2")
+
+[node name="body" type="Sprite2D" parent="."]
+position = Vector2(0, 5.96046e-08)
+scale = Vector2(0.269817, 0.269817)
+texture = ExtResource("4_d631c")

@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cxepljrkm5ivf"]
 
 [ext_resource type="Script" uid="uid://b3qofthncdxfo" path="res://game/Charger.gd" id="1_584kd"]
-[ext_resource type="Texture2D" uid="uid://dsueuxarasupf" path="res://Resources/Sprites/scifiStructure_10.png" id="2_c2leh"]
+[ext_resource type="Texture2D" uid="uid://dsueuxarasupf" path="res://Resources (delete this later)/Sprites/scifiStructure_10.png" id="2_c2leh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sa7kb"]
 
