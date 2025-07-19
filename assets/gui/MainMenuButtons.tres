@@ -1,0 +1,9 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://dx4qflukuri0i"]
+
+[ext_resource type="FontFile" uid="uid://b6gbbp5q2slaw" path="res://assets/gui/Conthrax-SemiBold.otf" id="1_r8hru"]
+
+[resource]
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/colors/font_outline_color = Color(1, 1, 1, 1)
+Label/font_sizes/font_size = 32
+Label/fonts/font = ExtResource("1_r8hru")

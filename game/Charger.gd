@@ -4,7 +4,7 @@ var Player:bool = false
 var cost : int = 5
 var can_buy = false
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Player and Global.crystals >= cost:
 		can_buy = true
 		$outline.show()

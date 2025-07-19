@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cifylt56upxp4"
-path="res://.godot/imported/button_rectangle_depth_gloss.png-2c87d9afdbc245ea527b7e964a20a94e.ctex"
+uid="uid://b1etvll3hwvhw"
+path="res://.godot/imported/MainMenuBackground.png-366229353b38ac7d12286127ab0204d2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gui/button_rectangle_depth_gloss.png"
-dest_files=["res://.godot/imported/button_rectangle_depth_gloss.png-2c87d9afdbc245ea527b7e964a20a94e.ctex"]
+source_file="res://assets/gui/MainMenuBackground.png"
+dest_files=["res://.godot/imported/MainMenuBackground.png-366229353b38ac7d12286127ab0204d2.ctex"]
 
 [params]
 

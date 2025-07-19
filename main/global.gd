@@ -1,5 +1,6 @@
 extends Node
 
+var InGame: bool = false
 var power : float
 var crystals : int 
 var power_bar : Node
@@ -17,8 +18,9 @@ func hit(damage):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	power_bar.value = power
-	crystal_count.text = str(crystals)
+	if InGame:
+		power_bar.value = power
+		crystal_count.text = str(crystals)
 
 func reset():
 	power = MAX_POWER
