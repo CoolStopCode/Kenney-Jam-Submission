@@ -11,4 +11,4 @@ func _process(_delta: float) -> void:
 		if dis < closestdis:
 			closestdis = dis
 			closestcharger = i
-	$Sprite2D2.look_at(closestcharger.global_position)
+	look_at(closestcharger.global_position)
