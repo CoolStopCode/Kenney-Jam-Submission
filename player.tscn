@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://5yuaqv0jstiy"]
+
+[ext_resource type="Script" uid="uid://c2uqd5xmbn542" path="res://player.gd" id="1_onrkg"]
+[ext_resource type="Texture2D" uid="uid://du7vjpfc4gl0k" path="res://Resources/Sprites/Player/robot_3Dblue.png" id="2_i3pqv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hqtel"]
+size = Vector2(40, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sweqy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_i3pqv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
+script = ExtResource("1_onrkg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_hqtel")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.283784, 0.283784)
+sprite_frames = SubResource("SpriteFrames_sweqy")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+
+[node name="ProgressBar" type="ProgressBar" parent="Camera2D"]
+offset_left = -322.0
+offset_top = -308.0
+offset_right = 322.0
+offset_bottom = -281.0
+rounded = true
