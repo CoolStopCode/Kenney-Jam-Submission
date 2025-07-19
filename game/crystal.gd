@@ -17,7 +17,7 @@ func _on_body_entered(body: Node2D) -> void:
 
 func collect():
 	Global.crystals += 1
-	$sprite.queue_free()
+	$sprite.hide()
 	monitoring = false
 	$GPUParticles2D.emitting = true
 	await get_tree().create_timer(1.0).timeout

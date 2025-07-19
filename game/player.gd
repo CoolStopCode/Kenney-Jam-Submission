@@ -16,6 +16,7 @@ func _process(delta: float) -> void:
 		$trail.emitting = false
 		$dust.emitting = false
 		modulate = Color(0.3, 0.3, 0.3)
+		get_node("/root/main").game_over()
 		return
 
 	if Input.is_action_pressed("Forward"):
@@ -53,6 +54,7 @@ func _process(delta: float) -> void:
 
 func hit():
 	if not dead:
+		get_node("/root/main/window/viewport/game/player/camera").shake(0.2, 5.0)
 		modulate = Color(1.0, 0.6, 0.6)
 		await get_tree().create_timer(0.2).timeout
 		modulate = Color(0.8, 0.8, 0.8)

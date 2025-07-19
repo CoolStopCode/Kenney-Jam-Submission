@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=4 uid="uid://dwbfpl17n4ahj"]
+[gd_scene load_steps=10 format=4 uid="uid://dwbfpl17n4ahj"]
 
 [ext_resource type="Script" uid="uid://ck6k7tyqaon71" path="res://game/game.gd" id="1_dakft"]
 [ext_resource type="Texture2D" uid="uid://bmleu0fe1ex4c" path="res://Resources (delete this later)/Sprites/TileMap1.png" id="1_vasa2"]
 [ext_resource type="PackedScene" uid="uid://5yuaqv0jstiy" path="res://game/player.tscn" id="2_h7iqs"]
 [ext_resource type="PackedScene" uid="uid://cxepljrkm5ivf" path="res://game/charger.tscn" id="3_h7iqs"]
 [ext_resource type="PackedScene" uid="uid://6cgqkjqr8wij" path="res://game/crystal.tscn" id="4_4fuuu"]
+[ext_resource type="Script" uid="uid://cvlsh8mdga605" path="res://game/camera_2d.gd" id="4_u5opy"]
 [ext_resource type="PackedScene" uid="uid://ccaxipabgd2xp" path="res://game/spin_turret.tscn" id="5_dxrkv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cm0pq"]
@@ -61,8 +62,9 @@ tile_set = SubResource("TileSet_fos0i")
 
 [node name="player" parent="." instance=ExtResource("2_h7iqs")]
 
-[node name="Camera2D" type="Camera2D" parent="player"]
+[node name="camera" type="Camera2D" parent="player"]
 position_smoothing_enabled = true
+script = ExtResource("4_u5opy")
 
 [node name="Charger" parent="." instance=ExtResource("3_h7iqs")]
 position = Vector2(430, 104)

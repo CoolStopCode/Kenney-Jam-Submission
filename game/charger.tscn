@@ -1,35 +1,69 @@
-[gd_scene load_steps=7 format=3 uid="uid://cxepljrkm5ivf"]
+[gd_scene load_steps=11 format=3 uid="uid://cxepljrkm5ivf"]
 
 [ext_resource type="Script" uid="uid://b3qofthncdxfo" path="res://game/Charger.gd" id="1_584kd"]
-[ext_resource type="Texture2D" uid="uid://dsueuxarasupf" path="res://Resources (delete this later)/Sprites/scifiStructure_10.png" id="2_c2leh"]
+[ext_resource type="Texture2D" uid="uid://2620rskyi172" path="res://assets/enemy/scifiStructure_13.png" id="2_btxam"]
 [ext_resource type="Texture2D" uid="uid://dui87fng22jgd" path="res://assets/crystal/scifiEnvironment_10.png" id="3_btxam"]
+[ext_resource type="Texture2D" uid="uid://b0odtjnaqlrlc" path="res://assets/particle/spark_02.png" id="4_iblg0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sa7kb"]
+radius = 68.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s0vrt"]
-size = Vector2(8, 12)
+size = Vector2(43, 83)
 
 [sub_resource type="LabelSettings" id="LabelSettings_iblg0"]
 font_size = 32
+
+[sub_resource type="Curve" id="Curve_dbemv"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.647059, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_wb2er"]
+curve = SubResource("Curve_dbemv")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_m82oe"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(0, 1, 1)
+direction = Vector3(0, -1, 0)
+spread = 78.072
+initial_velocity_min = 34.48
+initial_velocity_max = 229.88
+gravity = Vector3(0, 200, 0)
+scale_min = 0.1
+scale_max = 0.2
+scale_curve = SubResource("CurveTexture_wb2er")
 
 [node name="Charger" type="Area2D"]
 script = ExtResource("1_584kd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-6, 15)
+position = Vector2(0, 16)
 shape = SubResource("CircleShape2D_sa7kb")
+debug_color = Color(0.43, 0.601525, 1.15514e-06, 0.42)
+
+[node name="outline" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(-24, 41, 24, 41, 24, 5, 30, -1, 30, -18, 24, -25, 24, -37, 15, -45, -9, -45, -23, -33, -23, -23, -29, -16, -29, -5, -24, -1)
+
+[node name="TextEdit" type="Label" parent="outline"]
+offset_left = -31.0
+offset_top = 43.0
+offset_right = 32.0
+offset_bottom = 66.0
+text = "E to buy"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_c2leh")
+position = Vector2(1.90735e-06, -1.90735e-06)
+scale = Vector2(1.51563, 1.51563)
+texture = ExtResource("2_btxam")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(8, 11)
+position = Vector2(0, -2.5)
 shape = SubResource("RectangleShape2D_s0vrt")
 
 [node name="display" type="Sprite2D" parent="."]
-position = Vector2(-9, -33)
+position = Vector2(-9, -57)
 scale = Vector2(0.53125, 0.53125)
 texture = ExtResource("3_btxam")
 
@@ -41,6 +75,14 @@ offset_bottom = 24.2941
 text = "5"
 label_settings = SubResource("LabelSettings_iblg0")
 vertical_alignment = 1
+
+[node name="sparks" type="GPUParticles2D" parent="."]
+modulate = Color(1, 0.956, 0.56, 1)
+emitting = false
+texture = ExtResource("4_iblg0")
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_m82oe")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
