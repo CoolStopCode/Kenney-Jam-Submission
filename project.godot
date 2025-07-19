@@ -11,14 +11,27 @@ config_version=5
 [application]
 
 config/name="kenney"
-run/main_scene="res://Main.tscn"
+run/main_scene="uid://cjaifq5plgbvp"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Global="*res://main/global.gd"
 
 [editor]
 
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
+
+[file_customization]
+
+folder_colors={
+"res://Resources/": "yellow",
+"res://addons/": "gray",
+"res://game/": "red",
+"res://main/": "green"
+}
 
 [global_group]
 

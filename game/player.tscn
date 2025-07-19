@@ -1,0 +1,71 @@
+[gd_scene load_steps=11 format=3 uid="uid://5yuaqv0jstiy"]
+
+[ext_resource type="Script" uid="uid://c2uqd5xmbn542" path="res://game/player.gd" id="1_onrkg"]
+[ext_resource type="Texture2D" uid="uid://c6hq5dnw46nr2" path="res://Resources/kenney_particle-pack/PNG (Transparent)/smoke_08.png" id="2_du4nq"]
+[ext_resource type="Texture2D" uid="uid://du7vjpfc4gl0k" path="res://Resources/Sprites/Player/robot_3Dblue.png" id="2_i3pqv"]
+[ext_resource type="Texture2D" uid="uid://bobuwe4j85ldf" path="res://Resources/kenney_particle-pack/PNG (Transparent)/dirt_01.png" id="3_p0vpi"]
+
+[sub_resource type="Gradient" id="Gradient_du4nq"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Curve" id="Curve_p0vpi"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.810945, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_d631c"]
+curve = SubResource("Curve_p0vpi")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_p0vpi"]
+particle_flag_disable_z = true
+inherit_velocity_ratio = 1.0
+direction = Vector3(-1, 0, 0)
+initial_velocity_min = 179.91
+initial_velocity_max = 238.49
+gravity = Vector3(0, 10, 0)
+scale_min = 0.03
+scale_max = 0.03
+scale_curve = SubResource("CurveTexture_d631c")
+turbulence_enabled = true
+turbulence_noise_strength = 0.01
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hqtel"]
+size = Vector2(40, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sweqy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_i3pqv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
+script = ExtResource("1_onrkg")
+
+[node name="trail" type="CPUParticles2D" parent="."]
+modulate = Color(0.32, 0.17024, 0.0704, 1)
+amount = 30
+texture = ExtResource("2_du4nq")
+lifetime = 5.0
+emission_shape = 1
+emission_sphere_radius = 5.89
+gravity = Vector2(0, 0)
+angle_max = 360.0
+scale_amount_min = 0.1
+scale_amount_max = 0.1
+color_ramp = SubResource("Gradient_du4nq")
+
+[node name="dust" type="GPUParticles2D" parent="."]
+modulate = Color(0.44, 0.209, 0.11, 1)
+texture = ExtResource("3_p0vpi")
+process_material = SubResource("ParticleProcessMaterial_p0vpi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_hqtel")
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.283784, 0.283784)
+sprite_frames = SubResource("SpriteFrames_sweqy")

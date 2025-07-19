@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjaifq5plgbvp"]
+
+[ext_resource type="Script" uid="uid://4qplb5akw1e1" path="res://main/main.gd" id="1_pjrb6"]
+[ext_resource type="PackedScene" uid="uid://dwbfpl17n4ahj" path="res://game/game.tscn" id="2_xwkvk"]
+
+[node name="main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pjrb6")
+
+[node name="window" type="SubViewportContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="window"]
+handle_input_locally = false
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="game" parent="window/SubViewport" instance=ExtResource("2_xwkvk")]
+
+[node name="power" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 27.0
+grow_horizontal = 2
