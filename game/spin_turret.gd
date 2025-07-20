@@ -7,7 +7,7 @@ var bullet_speed = 800.0
 var bullet_damage = 6.0
 var shoot_cooldown = 0.4  # seconds between shots
 var shoot_timer = 0.0
-var range = 1200
+var Tankrange = 1200
 
 var in_range := false
 
@@ -19,7 +19,7 @@ func _process(delta: float) -> void:
 	pow(global_position.y - Global.player.global_position.y, 2)
 	)
 
-	if distance <= range:
+	if distance <= Tankrange:
 		in_range = true
 	else:
 		in_range = false

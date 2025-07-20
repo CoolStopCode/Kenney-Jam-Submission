@@ -1,6 +1,6 @@
 extends Node2D
 
-var closestdis:int = 1000000
+var closestdis:float = 1000000
 var closestcharger
 
 func _process(_delta: float) -> void:

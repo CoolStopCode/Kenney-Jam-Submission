@@ -6,7 +6,7 @@ var bullet_speed = 400.0
 var bullet_damage = 5.0
 var shoot_cooldown = 0.5  # seconds between shots
 var shoot_timer = 0.0
-var range = 900
+var Turrrange = 900
 
 var in_range := false
 
@@ -16,7 +16,7 @@ func _process(delta: float) -> void:
 	pow(global_position.y - Global.player.global_position.y, 2)
 	)
 
-	if distance <= range:
+	if distance <= Turrrange:
 		in_range = true
 	else:
 		in_range = false

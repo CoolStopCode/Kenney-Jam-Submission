@@ -9,7 +9,7 @@ var crystal_count : Node
 var game : Node
 var cam : Node
 var charge_cost : int
-var score : int
+var score : float
 var charge_multiplier = 1.5
 const MAX_POWER := 100.0
 

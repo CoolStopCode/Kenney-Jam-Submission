@@ -20,7 +20,7 @@ func _process(_delta: float) -> void:
 	
 	if Input.is_action_just_pressed("confirm") and can_buy:
 		Global.crystals -= Global.charge_cost
-		Global.charge_cost *= Global.charge_multiplier
+		Global.charge_cost *= round(Global.charge_multiplier)
 		Global.power = Global.MAX_POWER
 		Global.score += 10
 		$sparks.emitting = true
