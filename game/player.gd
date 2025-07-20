@@ -27,6 +27,7 @@ func _process(delta: float) -> void:
 
 	if Input.is_action_pressed("Forward"):
 		velocity = direction_to_vector($body.rotation).normalized() * MOVE_SPEED  * delta
+		Global.score += 0.5 * delta
 		Global.power -= POWER_USAGE * delta
 	if Input.is_action_pressed("Reverse"):
 		velocity = -direction_to_vector($body.rotation).normalized() * MOVE_SPEED  * delta

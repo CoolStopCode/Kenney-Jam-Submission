@@ -14,6 +14,7 @@ func _process(_delta: float) -> void:
 func game_over():
 	$bg.show()
 	$ending.show()
+	$ending/score.text = "Score: " + str(roundi(Global.score))
 
 
 func _on_texture_button_pressed() -> void:

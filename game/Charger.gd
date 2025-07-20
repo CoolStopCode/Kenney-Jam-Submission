@@ -22,6 +22,7 @@ func _process(_delta: float) -> void:
 		Global.crystals -= Global.charge_cost
 		Global.charge_cost *= Global.charge_multiplier
 		Global.power = Global.MAX_POWER
+		Global.score += 10
 		$sparks.emitting = true
 		get_node("/root/main/window/viewport/game/player/camera").shake(0.6, 20.0)
 

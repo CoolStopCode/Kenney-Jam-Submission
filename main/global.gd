@@ -9,6 +9,7 @@ var crystal_count : Node
 var game : Node
 var cam : Node
 var charge_cost : int
+var score : int
 var charge_multiplier = 1.5
 const MAX_POWER := 100.0
 
@@ -34,4 +35,5 @@ func reset():
 	crystal_count = get_node("/root/main/crystals/Label")
 	game = get_node("/root/main/window/viewport/game")
 	cam = get_node("/root/main/window/viewport/game/player/camera")
+	score = 0
 	charge_cost = 2

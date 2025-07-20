@@ -17,7 +17,17 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		Global.hit(damage)
 		$Sprite2D.hide()
-		$Area2D.monitoring = false
+		$player.monitoring = false
+		$end.emitting = true
+		await get_tree().create_timer(1.0).timeout
+		queue_free()
+	
+
+
+func _on_tilemap_body_entered(body: Node2D) -> void:
+	if body.is_in_group("tilemap"):
+		$Sprite2D.hide()
+		$tilemap.monitoring = false
 		$end.emitting = true
 		await get_tree().create_timer(1.0).timeout
 		queue_free()

@@ -17,6 +17,7 @@ func _on_body_entered(body: Node2D) -> void:
 
 func collect():
 	Global.crystals += 1
+	Global.score += 2
 	$sprite.hide()
 	monitoring = false
 	$GPUParticles2D.emitting = true

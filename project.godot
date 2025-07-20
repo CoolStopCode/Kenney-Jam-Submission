@@ -42,6 +42,7 @@ folder_colors={
 
 player="The gyatt damn player"
 Charger="Da Charger"
+tilemap=""
 
 [input]
 
