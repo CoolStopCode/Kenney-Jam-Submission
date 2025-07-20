@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://hrywewutiron" path="res://assets/particle/scifiEnvironment_09.png" id="2_p4fsg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p4fsg"]
-size = Vector2(45, 45)
+size = Vector2(86.5, 84.5)
 
 [sub_resource type="Curve" id="Curve_u1bmt"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.639706, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -21,8 +21,7 @@ spread = 84.036
 initial_velocity_min = 30.0
 initial_velocity_max = 200.0
 gravity = Vector3(0, 200, 0)
-scale_min = 0.2
-scale_max = 0.5
+scale_max = 1.1
 scale_curve = SubResource("CurveTexture_4op14")
 
 [node name="crystal" type="Area2D"]
@@ -32,8 +31,7 @@ script = ExtResource("1_u1bmt")
 shape = SubResource("RectangleShape2D_p4fsg")
 
 [node name="sprite" type="Sprite2D" parent="."]
-position = Vector2(9.53674e-07, 9.53674e-07)
-scale = Vector2(1.03125, 1.03125)
+scale = Vector2(2.34375, 2.34375)
 texture = ExtResource("1_2c3oa")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]

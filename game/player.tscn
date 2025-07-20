@@ -21,16 +21,18 @@ particle_flag_disable_z = true
 inherit_velocity_ratio = 1.0
 direction = Vector3(-1, 0, 0)
 initial_velocity_min = 179.91
-initial_velocity_max = 238.49
-gravity = Vector3(0, 10, 0)
+initial_velocity_max = 462.63
+gravity = Vector3(0, 20, 0)
 scale_min = 0.03
 scale_max = 0.03
 scale_curve = SubResource("CurveTexture_d631c")
 turbulence_enabled = true
 turbulence_noise_strength = 0.01
+turbulence_influence_min = 0.2
+turbulence_influence_max = 0.2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hqtel"]
-size = Vector2(40, 40)
+size = Vector2(81, 62)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 modulate = Color(0.819608, 0.819608, 0.827451, 1)
@@ -45,8 +47,8 @@ emission_shape = 1
 emission_sphere_radius = 5.89
 gravity = Vector2(0, 0)
 angle_max = 360.0
-scale_amount_min = 0.1
-scale_amount_max = 0.1
+scale_amount_min = 0.15
+scale_amount_max = 0.15
 color_ramp = SubResource("Gradient_du4nq")
 
 [node name="dust" type="GPUParticles2D" parent="."]
@@ -58,7 +60,7 @@ process_material = SubResource("ParticleProcessMaterial_p0vpi")
 shape = SubResource("RectangleShape2D_hqtel")
 
 [node name="tracks" type="Node2D" parent="."]
-scale = Vector2(0.3, 0.3)
+scale = Vector2(0.5, 0.5)
 
 [node name="Sprite2D2" type="Sprite2D" parent="tracks"]
 position = Vector2(0, -40)
@@ -70,5 +72,5 @@ texture = ExtResource("5_4fto2")
 
 [node name="body" type="Sprite2D" parent="."]
 position = Vector2(0, 5.96046e-08)
-scale = Vector2(0.269817, 0.269817)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_d631c")

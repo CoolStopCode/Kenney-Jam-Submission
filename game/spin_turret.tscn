@@ -26,6 +26,7 @@ scale = Vector2(1.51042, 1.51042)
 texture = ExtResource("2_uv6vv")
 
 [node name="muzzle" type="Node2D" parent="top"]
+visible = false
 modulate = Color(1, 0.925, 0.75, 0.592157)
 position = Vector2(0, -1.26279e-06)
 scale = Vector2(0.662068, 0.662068)

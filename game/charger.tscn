@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b0odtjnaqlrlc" path="res://assets/particle/spark_02.png" id="4_iblg0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sa7kb"]
-radius = 68.0
+radius = 104.743
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s0vrt"]
 size = Vector2(43, 83)
@@ -34,6 +34,7 @@ scale_max = 0.2
 scale_curve = SubResource("CurveTexture_wb2er")
 
 [node name="Charger" type="Area2D" groups=["Charger"]]
+scale = Vector2(1.5, 1.5)
 script = ExtResource("1_584kd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

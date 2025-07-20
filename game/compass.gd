@@ -11,4 +11,10 @@ func _process(_delta: float) -> void:
 		if dis < closestdis:
 			closestdis = dis
 			closestcharger = i
-	look_at(closestcharger.global_position)
+	
+	if closestdis < 150.0:
+		hide()
+	else:
+		show()
+	var dir = (closestcharger.global_position - Global.player.global_position).normalized()
+	rotation = dir.angle()

@@ -1,11 +1,10 @@
 extends Area2D
 
 var Player:bool = false
-var cost : int = 5
 var can_buy = false
 
 func _process(_delta: float) -> void:
-	if Player and Global.crystals >= cost:
+	if Player and Global.crystals >= Global.charge_cost:
 		can_buy = true
 		$outline.show()
 	else:
@@ -14,13 +13,14 @@ func _process(_delta: float) -> void:
 	
 	if Player:
 		$display.show()
-		$display/Label.text = str(cost)
+		$display/Label.text = str(Global.charge_cost)
 	else:
 		$display.hide()
 	
 	
 	if Input.is_action_just_pressed("confirm") and can_buy:
-		Global.crystals -= cost
+		Global.crystals -= Global.charge_cost
+		Global.charge_cost *= Global.charge_multiplier
 		Global.power = Global.MAX_POWER
 		$sparks.emitting = true
 		get_node("/root/main/window/viewport/game/player/camera").shake(0.6, 20.0)

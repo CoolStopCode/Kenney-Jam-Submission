@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://ccus1goyqtmmg"]
+
+[ext_resource type="Script" uid="uid://veiqix028a6p" path="res://game/aim_turret.gd" id="1_nuxq6"]
+[ext_resource type="Texture2D" uid="uid://dl555bnn0vtju" path="res://assets/enemy/tankGreen_outline.png" id="2_nuxq6"]
+[ext_resource type="Texture2D" uid="uid://ct7icluirnlba" path="res://assets/enemy/barrelGreen_outline.png" id="3_juuae"]
+[ext_resource type="Texture2D" uid="uid://255hnovj487q" path="res://assets/particle/muzzle_04.png" id="4_hor1p"]
+[ext_resource type="Texture2D" uid="uid://bahx8gfavtalb" path="res://Resources (delete this later)/kenney_particle-pack/PNG (Transparent)/circle_05.png" id="5_fepk8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4yq1q"]
+size = Vector2(76, 74)
+
+[node name="aim_turret" type="StaticBody2D"]
+script = ExtResource("1_nuxq6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_4yq1q")
+
+[node name="base" type="Sprite2D" parent="."]
+position = Vector2(1.43051e-06, 1.43051e-06)
+scale = Vector2(1.4375, 1.4375)
+texture = ExtResource("2_nuxq6")
+
+[node name="top" type="Node2D" parent="."]
+
+[node name="top" type="Sprite2D" parent="top"]
+position = Vector2(0, 32)
+scale = Vector2(1.51042, 1.51042)
+texture = ExtResource("3_juuae")
+
+[node name="muzzle" type="Node2D" parent="top/top"]
+modulate = Color(1, 0.925, 0.75, 0.592157)
+position = Vector2(0, -1.26279e-06)
+scale = Vector2(0.662068, 0.662068)
+
+[node name="Sprite2D2" type="Sprite2D" parent="top/top/muzzle"]
+position = Vector2(0, 103)
+rotation = 3.14159
+scale = Vector2(0.0564835, 0.474645)
+texture = ExtResource("4_hor1p")
+
+[node name="Sprite2D3" type="Sprite2D" parent="top/top/muzzle"]
+position = Vector2(2.38419e-07, 44)
+scale = Vector2(0.269531, 0.539063)
+texture = ExtResource("5_fepk8")

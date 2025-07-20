@@ -37,9 +37,9 @@ rotation = 1.5708
 shape = SubResource("RectangleShape2D_3mm70")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(2.38419e-07, 0)
+position = Vector2(2.38419e-07, 2.38419e-07)
 rotation = 1.5708
-scale = Vector2(0.725, 0.725)
+scale = Vector2(0.888276, 0.888276)
 texture = ExtResource("1_sgh50")
 
 [node name="end" type="GPUParticles2D" parent="."]

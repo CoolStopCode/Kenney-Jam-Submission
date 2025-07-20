@@ -5,7 +5,11 @@ var power : float
 var crystals : int 
 var power_bar : Node
 var player : Node
-var crystal_count  : Node
+var crystal_count : Node
+var game : Node
+var cam : Node
+var charge_cost : int
+var charge_multiplier = 1.5
 const MAX_POWER := 100.0
 
 # Called when the node enters the scene tree for the first time.
@@ -24,7 +28,10 @@ func _process(_delta: float) -> void:
 
 func reset():
 	power = MAX_POWER
-	crystals = 5
+	crystals = 0
 	power_bar = get_node("/root/main/power")
 	player = get_node("/root/main/window/viewport/game/player")
 	crystal_count = get_node("/root/main/crystals/Label")
+	game = get_node("/root/main/window/viewport/game")
+	cam = get_node("/root/main/window/viewport/game/player/camera")
+	charge_cost = 2

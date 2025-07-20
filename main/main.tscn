@@ -1,17 +1,18 @@
-[gd_scene load_steps=11 format=3 uid="uid://cjaifq5plgbvp"]
+[gd_scene load_steps=13 format=3 uid="uid://cjaifq5plgbvp"]
 
 [ext_resource type="Script" uid="uid://4qplb5akw1e1" path="res://main/main.gd" id="1_pjrb6"]
 [ext_resource type="PackedScene" uid="uid://dwbfpl17n4ahj" path="res://game/game.tscn" id="2_xwkvk"]
+[ext_resource type="FontFile" uid="uid://bhlebp2hej7mn" path="res://assets/Kenney Future.ttf" id="3_kfbq2"]
 [ext_resource type="Texture2D" uid="uid://dui87fng22jgd" path="res://assets/crystal/scifiEnvironment_10.png" id="3_xwkvk"]
 [ext_resource type="Texture2D" uid="uid://blfrsqpt2upju" path="res://assets/gui/button_rectangle_flat.png" id="4_3wy1v"]
 [ext_resource type="Texture2D" uid="uid://2jaoc5gniny7" path="res://assets/gui/button_rectangle_gloss.png" id="6_67ri8"]
 
-[sub_resource type="Gradient" id="Gradient_xwkvk"]
-offsets = PackedFloat32Array(0.0120482, 0.422078, 1)
-colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0.17184, 0, 0, 0, 0.541176)
+[sub_resource type="Gradient" id="Gradient_kfbq2"]
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0.482353)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_c651c"]
-gradient = SubResource("Gradient_xwkvk")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4dugh"]
+gradient = SubResource("Gradient_kfbq2")
+fill_from = Vector2(1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xwkvk"]
 bg_color = Color(1, 0.918, 0.59, 1)
@@ -25,10 +26,16 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
+[sub_resource type="LabelSettings" id="LabelSettings_3wy1v"]
+font = ExtResource("3_kfbq2")
+font_size = 50
+
 [sub_resource type="LabelSettings" id="LabelSettings_xwkvk"]
+font = ExtResource("3_kfbq2")
 font_size = 80
 
 [sub_resource type="LabelSettings" id="LabelSettings_grrlh"]
+font = ExtResource("3_kfbq2")
 font_size = 50
 
 [node name="main" type="Control"]
@@ -51,7 +58,7 @@ stretch = true
 
 [node name="viewport" type="SubViewport" parent="window"]
 handle_input_locally = false
-size = Vector2i(1152, 648)
+size = Vector2i(1920, 1080)
 render_target_update_mode = 4
 
 [node name="game" parent="window/viewport" instance=ExtResource("2_xwkvk")]
@@ -61,27 +68,25 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -132.0
-offset_top = 163.0
-offset_right = -1016.0
-offset_bottom = 945.0
+offset_bottom = -712.0
 grow_horizontal = 2
 grow_vertical = 2
-rotation = -1.5708
-texture = SubResource("GradientTexture1D_c651c")
+texture = SubResource("GradientTexture2D_4dugh")
 
 [node name="power" type="ProgressBar" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -427.0
-offset_top = 17.0
-offset_right = 428.0
-offset_bottom = 44.0
+offset_left = -499.0
+offset_top = 19.0
+offset_right = 500.0
+offset_bottom = 77.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_kfbq2")
+theme_override_font_sizes/font_size = 40
 theme_override_styles/fill = SubResource("StyleBoxFlat_xwkvk")
 
 [node name="crystals" type="Control" parent="."]
@@ -89,17 +94,17 @@ layout_mode = 1
 anchors_preset = 0
 offset_left = 16.0
 offset_top = 8.0
-offset_right = 135.0
-offset_bottom = 48.0
+offset_right = 468.0
+offset_bottom = 160.0
 
 [node name="TextureRect" type="TextureRect" parent="crystals"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_top = -32.0
-offset_right = 64.0
-offset_bottom = 32.0
+offset_top = -77.0
+offset_right = 154.0
+offset_bottom = 77.0
 grow_vertical = 2
 texture = ExtResource("3_xwkvk")
 
@@ -108,12 +113,13 @@ layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 57.0
-offset_top = -11.0
-offset_right = 116.0
-offset_bottom = 12.0
+offset_left = 144.0
+offset_top = -34.0
+offset_right = 317.0
+offset_bottom = 35.0
 grow_vertical = 2
 text = "0"
+label_settings = SubResource("LabelSettings_3wy1v")
 vertical_alignment = 1
 
 [node name="bg" type="ColorRect" parent="."]

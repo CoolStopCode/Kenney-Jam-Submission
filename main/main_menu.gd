@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 @onready var StartButton = $TextureButton
 @onready var StartButtonTXT = $TextureButton/Sprite2D
